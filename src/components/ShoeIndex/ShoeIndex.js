@@ -25,8 +25,9 @@ const ShoeIndex = ({ sortId, setSortId }) => {
           </Select>
         </Header>
         <Spacer size={34} />
-        <ShoeGrid />
+        {/* <ShoeGrid /> */}
       </MainColumn>
+
       <LeftColumn>
         <Breadcrumbs>
           <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
@@ -38,21 +39,59 @@ const ShoeIndex = ({ sortId, setSortId }) => {
         <Spacer size={42} />
         <ShoeSidebar />
       </LeftColumn>
+
+
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div``;
+// Switched MainColumn and LeftColumn, leftcolumn renders first. --> WRONG - usability issues, you want to go to maincolumn first.. because you're on Running page, you want to navigate to the shoes first..
+// LeftColumn position: sticky and top:0; margin-right
 
-const LeftColumn = styled.div``;
+const Wrapper = styled.div`
 
-const MainColumn = styled.div``;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  gap: 32px;
+  
+  // display: flex;
+  // padding-top: 14px;
+  // overflow: auto;
+  // height: 100vh;
+  // flex-direction: row-reverse;
+  // align-items: baseline; // baseline is smart enough to know what we want to do. even though they're 2 different elements, it will pick up.
+  `;
 
-const Header = styled.header``;
+const LeftColumn = styled.div`
+
+  flex-basis: 248px;
+  
+  // margin-right: 32px;
+  // position: sticky;
+  // top:0;
+  // min-width: 248px;
+  `;
+
+const MainColumn = styled.div`
+  flex: 1;
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  // display: flex;
+  // position: sticky;
+  // top: 0;
+`;
 
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
+
+  margin-right: auto;
 `;
 
 export default ShoeIndex;
