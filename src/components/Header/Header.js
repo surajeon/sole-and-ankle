@@ -27,6 +27,8 @@ const Header = () => {
   );
 };
 
+// Nav and 2 Sides, apply flex:1 to all 3 element, so the middle element nav can be centered and the logo can be still on the left side. Logo는 flow layout.
+
 const MainHeader = styled.div`
   padding: 0 32px;
   border-bottom: 1px solid ${COLORS.gray[300]};
@@ -39,9 +41,9 @@ const MainHeader = styled.div`
 const Nav = styled.nav`
   display: flex;
   flex: 1;
-  gap: 48px;
+  gap: 48px; // between the nav items
   justify-content: space-between;
-  margin: 0 48px;
+  margin: 0 48px; // To keep the margin between logo and nav container when the screen gets smaller.
 `;
 
 const Side = styled.div`
